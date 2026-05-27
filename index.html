@@ -8,25 +8,24 @@
     <style>
         :root {
             --bg: #f8fafc;
-            --card: #ffffff;
+            --card: #fff;
             --text: #0f172a;
             --muted: #64748b;
             --border: #e2e8f0;
-            --dark: #020617;
             --code: #0f172a;
             --green: #047857;
             --blue: #1d4ed8;
             --amber-bg: #fffbeb;
             --amber-border: #fde68a;
-            --amber-text: #92400e;
+            --amber-text: #92400e
         }
 
         * {
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth
         }
 
         body {
@@ -34,65 +33,65 @@
             font-family: Inter, Segoe UI, Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.6
         }
 
         header {
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(255, 255, 255, .92);
+            background: rgba(255, 255, 255, .94);
             border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px)
         }
 
         .topbar {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 18px 22px;
+            padding: 16px 22px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 18px
         }
 
         .eyebrow {
             margin: 0;
             font-size: 13px;
-            font-weight: 700;
-            color: var(--muted);
+            font-weight: 800;
+            color: var(--muted)
         }
 
         h1,
         h2,
         h3 {
-            line-height: 1.2;
+            line-height: 1.2
         }
 
         h1 {
             margin: 4px 0 0;
-            font-size: 22px;
+            font-size: 22px
         }
 
         h2 {
-            margin: 0 0 16px;
-            font-size: 26px;
+            margin: 0 0 14px;
+            font-size: 26px
         }
 
         h3 {
-            margin: 26px 0 8px;
-            font-size: 18px;
+            margin: 24px 0 8px;
+            font-size: 18px
         }
 
         p {
-            margin: 0 0 14px;
+            margin: 0 0 14px
         }
 
         nav {
             display: flex;
             gap: 6px;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: flex-end
         }
 
         nav a,
@@ -102,13 +101,13 @@
             padding: 8px 10px;
             border-radius: 12px;
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 750
         }
 
         nav a:hover,
         .side a:hover {
             background: #f1f5f9;
-            color: #0f172a;
+            color: #0f172a
         }
 
         .layout {
@@ -117,18 +116,18 @@
             padding: 32px 22px;
             display: grid;
             grid-template-columns: 280px 1fr;
-            gap: 28px;
+            gap: 28px
         }
 
         .side {
             position: sticky;
-            top: 92px;
+            top: 88px;
             align-self: start;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 24px;
             padding: 16px;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+            box-shadow: 0 1px 2px rgba(15, 23, 42, .04)
         }
 
         .side-title {
@@ -137,11 +136,11 @@
             font-size: 13px;
             font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: .04em;
+            letter-spacing: .04em
         }
 
         .side a {
-            display: block;
+            display: block
         }
 
         .hero {
@@ -150,21 +149,21 @@
             border-radius: 34px;
             padding: 42px;
             box-shadow: 0 18px 40px rgba(15, 23, 42, .18);
-            margin-bottom: 28px;
+            margin-bottom: 28px
         }
 
         .hero h1 {
             font-size: clamp(34px, 5vw, 58px);
-            letter-spacing: -0.04em;
+            letter-spacing: -.04em;
             margin: 0;
-            max-width: 900px;
+            max-width: 980px
         }
 
         .hero p {
             color: #dbeafe;
             font-size: 18px;
-            max-width: 850px;
-            margin-top: 18px;
+            max-width: 900px;
+            margin-top: 18px
         }
 
         section {
@@ -174,31 +173,31 @@
             border-radius: 26px;
             padding: 26px;
             margin-bottom: 22px;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+            box-shadow: 0 1px 2px rgba(15, 23, 42, .04)
         }
 
         .grid {
             display: grid;
-            gap: 14px;
+            gap: 14px
         }
 
         .grid-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr))
         }
 
         .grid-4 {
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr))
         }
 
         .card {
             border: 1px solid var(--border);
             background: #f8fafc;
             border-radius: 20px;
-            padding: 18px;
+            padding: 18px
         }
 
         .card h3 {
-            margin-top: 0;
+            margin-top: 0
         }
 
         .tag {
@@ -210,7 +209,7 @@
             font-weight: 900;
             background: #e0f2fe;
             color: #075985;
-            margin-bottom: 10px;
+            margin-bottom: 10px
         }
 
         .warning {
@@ -219,29 +218,37 @@
             color: var(--amber-text);
             border-radius: 18px;
             padding: 16px;
-            font-weight: 650;
+            font-weight: 650
         }
 
-        pre {
+        .code {
+            display: block;
+            width: 100%;
+            min-height: 120px;
             margin: 12px 0 20px;
-            overflow-x: auto;
+            overflow: auto;
+            resize: vertical;
             background: var(--code);
             color: #e2e8f0;
             padding: 18px;
             border-radius: 18px;
+            border: 0;
+            font-family: Consolas, Monaco, 'Courier New', monospace;
             font-size: 14px;
             line-height: 1.55;
             box-shadow: inset 0 2px 10px rgba(0, 0, 0, .2);
+            white-space: pre;
+            tab-size: 4
         }
 
-        code {
-            font-family: Consolas, Monaco, 'Courier New', monospace;
+        .code.small {
+            min-height: 70px
         }
 
         .folder {
             background: #f1f5f9;
             color: #0f172a;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #cbd5e1
         }
 
         .checklist {
@@ -250,7 +257,7 @@
             gap: 12px;
             padding: 0;
             margin: 0;
-            list-style: none;
+            list-style: none
         }
 
         .checklist li {
@@ -259,32 +266,54 @@
             border-radius: 16px;
             padding: 14px;
             font-weight: 700;
-            color: #334155;
+            color: #334155
         }
 
         .checklist li::before {
-            content: "✓ ";
+            content: '✓ ';
             color: var(--green);
-            font-weight: 900;
+            font-weight: 900
         }
 
-        @media (max-width: 1000px) {
+        .note {
+            font-size: 14px;
+            color: #64748b
+        }
+
+        .copy-note {
+            background: #ecfdf5;
+            border: 1px solid #bbf7d0;
+            color: #065f46;
+            border-radius: 16px;
+            padding: 12px 14px;
+            font-weight: 700
+        }
+
+        @media(max-width:1000px) {
             .layout {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr
             }
 
             .side {
-                display: none;
+                display: none
             }
 
             nav {
-                display: none;
+                display: none
             }
 
             .grid-4,
             .grid-2,
             .checklist {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                padding: 28px
+            }
+
+            section {
+                padding: 20px
             }
         }
     </style>
@@ -297,31 +326,21 @@
                 <p class="eyebrow">Documentação Técnica</p>
                 <h1>Documentação importação de dados Infinit Soluções</h1>
             </div>
-            <nav>
-                <a href="#visao-geral">Visão geral</a>
-                <a href="#comercial">Comercial</a>
-                <a href="#plus">Plus</a>
-                <a href="#program">Program.cs</a>
-                <a href="#importador">Importador.cs</a>
+            <nav><a href="#visao-geral">1. Visão geral</a><a href="#criar-projeto">2. Criar projeto</a><a
+                    href="#estrutura">3. Estrutura</a><a href="#comercial">4. Comercial</a><a href="#plus">5. Plus</a><a
+                    href="#program">6. Program.cs</a><a href="#importador">7. Importador.cs</a><a href="#firebird">8.
+                    Firebird</a><a href="#velo-avante">9. Velo/Avante</a><a href="#boas-praticas">10. Boas práticas</a>
             </nav>
         </div>
     </header>
-
     <main class="layout">
         <aside class="side">
-            <p class="side-title">Ordem da documentação</p>
-            <a href="#visao-geral">1. Visão geral</a>
-            <a href="#criar-projeto">2. Criar projeto</a>
-            <a href="#estrutura">3. Estrutura padrão</a>
-            <a href="#comercial">4. Comercial - MySQL</a>
-            <a href="#plus">5. Plus - SQL Server</a>
-            <a href="#program">6. Program.cs</a>
-            <a href="#importador">7. Importador.cs</a>
-            <a href="#firebird">8. Firebird</a>
-            <a href="#velo-avante">9. Velo e Avante</a>
-            <a href="#boas-praticas">10. Boas práticas</a>
+            <p class="side-title">Ordem da documentação</p><a href="#visao-geral">1. Visão geral</a><a
+                href="#criar-projeto">2. Criar projeto</a><a href="#estrutura">3. Estrutura</a><a href="#comercial">4.
+                Comercial</a><a href="#plus">5. Plus</a><a href="#program">6. Program.cs</a><a href="#importador">7.
+                Importador.cs</a><a href="#firebird">8. Firebird</a><a href="#velo-avante">9. Velo/Avante</a><a
+                href="#boas-praticas">10. Boas práticas</a>
         </aside>
-
         <div>
             <div class="hero">
                 <p class="tag" style="background:rgba(255,255,255,.12);color:#e2e8f0;">Padrão interno de importação</p>
@@ -329,15 +348,17 @@
                 <p>Guia base para projetos de importação usando C#, EF Core, Scaffold-DbContext, CSV, Firebird,
                     Comercial em MySQL e Plus em SQL Server.</p>
             </div>
-
+            <div class="copy-note">Os códigos abaixo ficam em caixas de texto para não quebrar o HTML e para facilitar
+                copiar e colar.</div><br>
             <section id="visao-geral">
                 <h2>1. Visão geral do padrão</h2>
-                <p>O padrão adotado é manter uma única classe <strong>Importador.cs</strong> com os métodos de
-                    importação, enquanto o <strong>Program.cs</strong> cria as conexões e instancia os contextos.</p>
+                <p>O padrão adotado é manter uma única classe <strong>Importador.cs</strong> com métodos separados por
+                    entidade, enquanto o <strong>Program.cs</strong> cria as conexões e entrega os contextos prontos
+                    para o importador.</p>
                 <div class="grid grid-4">
                     <div class="card"><span class="tag">MySQL</span>
                         <h3>Comercial</h3>
-                        <p>Destino usando Pomelo e senha padrão <strong>genesysjp</strong>.</p>
+                        <p>Destino usando Pomelo/MySQL e senha padrão <strong>genesysjp</strong>.</p>
                     </div>
                     <div class="card"><span class="tag">SQL Server</span>
                         <h3>Plus</h3>
@@ -354,20 +375,19 @@
                     </div>
                 </div>
             </section>
-
             <section id="criar-projeto">
                 <h2>2. Criar o projeto</h2>
-                <p>No Visual Studio, crie um projeto do tipo Console App.</p>
-                <pre><code>Console App
+                <p>No Visual Studio, crie um projeto do tipo Console App.</p><textarea class="code small" readonly
+                    spellcheck="false">Console App
 Framework: .NET 8
-Nome sugerido: ImportacaoClienteX</code></pre>
+Nome sugerido: ImportacaoClienteX</textarea>
                 <div class="warning">Recomendação: manter o projeto em .NET 8 e os pacotes EF Core em versão 8.x para
                     evitar conflito de versão.</div>
             </section>
-
             <section id="estrutura">
                 <h2>3. Estrutura padrão do projeto</h2>
-                <pre class="folder"><code>NomeDoProjeto/
+                <p>Use uma estrutura simples, separando origem e destino quando houver banco de origem.</p><textarea
+                    class="code" readonly spellcheck="false">NomeDoProjeto/
 │
 ├── Destino/
 │   ├── DestinoContext.cs
@@ -381,82 +401,66 @@ Nome sugerido: ImportacaoClienteX</code></pre>
 │
 ├── Importador.cs
 ├── Program.cs
-└── appsettings.json</code></pre>
+└── appsettings.json</textarea>
                 <p>Quando a origem for CSV, não é necessário criar a pasta <strong>Origem</strong>. Nesse caso, o
-                    <strong>Importador</strong> recebe somente o contexto do destino.</p>
+                    <strong>Importador</strong> recebe somente o contexto do destino.
+                </p>
             </section>
-
             <section id="comercial">
                 <h2>4. Comercial - MySQL</h2>
                 <p>Use esta seção quando o destino for o banco Comercial em MySQL.</p>
-
-                <h3>4.1 Pacotes NuGet - Comercial</h3>
-                <pre><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
+                <h3>4.1 Pacotes NuGet - Comercial</h3><textarea class="code" readonly spellcheck="false">Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.8
 Install-Package Pomelo.EntityFrameworkCore.MySql -Version 8.0.2
 Install-Package Microsoft.Extensions.Configuration -Version 8.0.0
 Install-Package Microsoft.Extensions.Configuration.Json -Version 8.0.0
-Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</code></pre>
-
-                <h3>4.2 appsettings.json - Comercial</h3>
-                <pre><code>{
-  "ConnectionStrings": {
-    "DestinoComercial": "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;"
+Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</textarea>
+                <h3>4.2 appsettings.json - Comercial</h3><textarea class="code" readonly spellcheck="false">{
+  &quot;ConnectionStrings&quot;: {
+    &quot;DestinoComercial&quot;: &quot;Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;&quot;
   }
-}</code></pre>
-
-                <h3>4.3 Scaffold do destino Comercial</h3>
-                <pre><code>Scaffold-DbContext "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;" Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
-
-                <h3>4.4 Scaffold do destino Comercial com tabelas específicas</h3>
-                <pre><code>Scaffold-DbContext "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;" Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring -Tables produto,pessoa,grademovimento</code></pre>
+}</textarea>
+                <h3>4.3 Scaffold do destino Comercial</h3><textarea class="code" readonly
+                    spellcheck="false">Scaffold-DbContext &quot;Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;&quot; Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</textarea>
+                <h3>4.4 Scaffold com tabelas específicas</h3><textarea class="code" readonly
+                    spellcheck="false">Scaffold-DbContext &quot;Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;&quot; Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring -Tables produto,pessoa,grademovimento</textarea>
             </section>
-
             <section id="plus">
                 <h2>5. Plus - SQL Server</h2>
                 <p>Use esta seção quando o destino for o Plus em SQL Server.</p>
-
-                <h3>5.1 Pacotes NuGet - Plus</h3>
-                <pre><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
+                <h3>5.1 Pacotes NuGet - Plus</h3><textarea class="code" readonly spellcheck="false">Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 8.0.8
 Install-Package Microsoft.Extensions.Configuration -Version 8.0.0
 Install-Package Microsoft.Extensions.Configuration.Json -Version 8.0.0
-Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</code></pre>
-
-                <h3>5.2 appsettings.json - Plus</h3>
-                <pre><code>{
-  "ConnectionStrings": {
-    "DestinoPlus": "Server=localhost\\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;",
-    "OrigemPlus": "Server=localhost\\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;"
+Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</textarea>
+                <h3>5.2 appsettings.json - Plus</h3><textarea class="code" readonly spellcheck="false">{
+  &quot;ConnectionStrings&quot;: {
+    &quot;DestinoPlus&quot;: &quot;Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot;,
+    &quot;OrigemPlus&quot;: &quot;Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot;
   }
-}</code></pre>
-
-                <h3>5.3 Scaffold do destino Plus</h3>
-                <pre><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
-
-                <h3>5.4 Scaffold da origem SQL Server, quando existir</h3>
-                <pre><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Origem -Context OrigemContext -Force -NoOnConfiguring</code></pre>
+}</textarea>
+                <h3>5.3 Scaffold do destino Plus</h3><textarea class="code" readonly
+                    spellcheck="false">Scaffold-DbContext &quot;Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</textarea>
+                <h3>5.4 Scaffold da origem SQL Server, quando existir</h3><textarea class="code" readonly
+                    spellcheck="false">Scaffold-DbContext &quot;Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Origem -Context OrigemContext -Force -NoOnConfiguring</textarea>
             </section>
-
             <section id="program">
                 <h2>6. Program.cs</h2>
-                <p>O <strong>Program.cs</strong> deve ser o lugar onde as conexões são lidas e os contextos são criados.
-                    Assim os métodos do importador ficam limpos.</p>
-
-                <h3>6.1 Program.cs - CSV para Comercial</h3>
-                <pre><code>using Microsoft.EntityFrameworkCore;
+                <p>O <strong>Program.cs</strong> deve ler o <strong>appsettings.json</strong>, criar os contextos e
+                    passar para o <strong>Importador</strong>.</p>
+                <h3>6.1 Program.cs - CSV para Comercial</h3><textarea class="code" readonly spellcheck="false">using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionDestino = configuration.GetConnectionString("DestinoComercial");
+var connectionDestino = configuration.GetConnectionString(&quot;DestinoComercial&quot;);
 
 var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
     .UseMySql(connectionDestino, ServerVersion.AutoDetect(connectionDestino))
@@ -465,25 +469,23 @@ var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
 using var destino = new DestinoContext(optionsDestino);
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação Comercial...");
+Console.WriteLine(&quot;Iniciando importação Comercial...&quot;);
 
 var importador = new Importador(destino);
 importador.GradeProduto();
 
-Console.WriteLine("Importação Comercial finalizada.");
-Console.ReadKey();</code></pre>
-
-                <h3>6.2 Program.cs - CSV para Plus</h3>
-                <pre><code>using Microsoft.EntityFrameworkCore;
+Console.WriteLine(&quot;Importação Comercial finalizada.&quot;);
+Console.ReadKey();</textarea>
+                <h3>6.2 Program.cs - CSV para Plus</h3><textarea class="code" readonly spellcheck="false">using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionDestino = configuration.GetConnectionString("DestinoPlus");
+var connectionDestino = configuration.GetConnectionString(&quot;DestinoPlus&quot;);
 
 var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
     .UseSqlServer(connectionDestino)
@@ -492,27 +494,26 @@ var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
 using var destino = new DestinoContext(optionsDestino);
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação CSV para Plus...");
+Console.WriteLine(&quot;Iniciando importação CSV para Plus...&quot;);
 
 var importador = new Importador(destino);
 importador.GradeProdutoPlusCsv();
 
-Console.WriteLine("Importação Plus finalizada.");
-Console.ReadKey();</code></pre>
-
-                <h3>6.3 Program.cs - SQL Server para SQL Server no Plus</h3>
-                <pre><code>using Microsoft.EntityFrameworkCore;
+Console.WriteLine(&quot;Importação Plus finalizada.&quot;);
+Console.ReadKey();</textarea>
+                <h3>6.3 Program.cs - SQL Server para SQL Server no Plus</h3><textarea class="code" readonly
+                    spellcheck="false">using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Origem;
 using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionOrigem = configuration.GetConnectionString("OrigemPlus");
-var connectionDestino = configuration.GetConnectionString("DestinoPlus");
+var connectionOrigem = configuration.GetConnectionString(&quot;OrigemPlus&quot;);
+var connectionDestino = configuration.GetConnectionString(&quot;DestinoPlus&quot;);
 
 var optionsOrigem = new DbContextOptionsBuilder&lt;OrigemContext&gt;()
     .UseSqlServer(connectionOrigem)
@@ -528,21 +529,19 @@ using var destino = new DestinoContext(optionsDestino);
 origem.ChangeTracker.AutoDetectChangesEnabled = false;
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação Plus...");
+Console.WriteLine(&quot;Iniciando importação Plus...&quot;);
 
 var importador = new Importador(origem, destino);
 importador.ProdutoPlus();
 
-Console.WriteLine("Importação Plus finalizada.");
-Console.ReadKey();</code></pre>
+Console.WriteLine(&quot;Importação Plus finalizada.&quot;);
+Console.ReadKey();</textarea>
             </section>
-
             <section id="importador">
                 <h2>7. Importador.cs</h2>
                 <p>Classe única com construtor para CSV, que recebe somente destino, e construtor para banco origem, que
                     recebe origem e destino.</p>
-
-                <pre><code>using Microsoft.EntityFrameworkCore;
+                <textarea class="code" readonly spellcheck="false">using Microsoft.EntityFrameworkCore;
 using NomeDoProjeto.Destino;
 
 public class Importador
@@ -566,22 +565,22 @@ public class Importador
         return File.ReadAllLines(caminho)
             .Skip(1)
             .Where(linha =&gt; !string.IsNullOrWhiteSpace(linha))
-            .Select(linha =&gt; linha.Split(';'))
+            .Select(linha =&gt; linha.Split(&#x27;;&#x27;))
             .ToList();
     }
 
     public void GradeProduto()
     {
-        List&lt;string[]&gt; grades = GetCSV(@"\\kailon\IMPORTACAO\Importações Victor\Mix More - sistema kigi\backup\produtosGrade.csv");
+        List&lt;string[]&gt; grades = GetCSV(@&quot;\\kailon\IMPORTACAO\Importações Victor\Mix More - sistema kigi\backup\produtosGrade.csv&quot;);
         var count = grades.Count;
         int contador = 0;
 
-        Console.WriteLine($"Total de Grades encontrados: {count}");
+        Console.WriteLine($&quot;Total de Grades encontrados: {count}&quot;);
 
         foreach (var grade in grades)
         {
             contador++;
-            Console.WriteLine($"Grade {contador} // {count}");
+            Console.WriteLine($&quot;Grade {contador} // {count}&quot;);
 
             var antProdutoId = grade[0].ToString();
             var buscaProduto = _destino.Produtos
@@ -594,8 +593,8 @@ public class Importador
                 {
                     AlteracaoData = DateTime.Now,
                     DataCadastro = DateTime.Now,
-                    CadastroUsuario = "IMPORTAÇÃO",
-                    AlteracaoUsuario = "IMPORTAÇÃO",
+                    CadastroUsuario = &quot;IMPORTAÇÃO&quot;,
+                    AlteracaoUsuario = &quot;IMPORTAÇÃO&quot;,
                     Tamanho = grade[8],
                     Referencia = grade[4],
                     ProdutoId = buscaProduto.ProdutoId,
@@ -614,74 +613,24 @@ public class Importador
                 {
                     _destino.SaveChanges();
                     _destino.ChangeTracker.Clear();
-                    Console.WriteLine($"{contador} Grades importadas...");
+                    Console.WriteLine($&quot;{contador} Grades importadas...&quot;);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message + "\n" + e.InnerException?.Message);
+                    Console.WriteLine(e.Message + &quot;\n&quot; + e.InnerException?.Message);
                 }
             }
         }
 
         _destino.SaveChanges();
         _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de Grades finalizada.");
-    }
-
-    public void GradeProdutoPlusCsv()
-    {
-        List&lt;string[]&gt; grades = GetCSV(@"C:\Importacao\produtosGrade.csv");
-        var count = grades.Count;
-        int contador = 0;
-
-        Console.WriteLine($"Total de Grades encontrados: {count}");
-
-        foreach (var grade in grades)
-        {
-            contador++;
-            Console.WriteLine($"Grade {contador} // {count}");
-
-            var antProdutoId = grade[0].ToString();
-            var buscaProduto = _destino.Produtos
-                .AsNoTracking()
-                .FirstOrDefault(x =&gt; x.Alteracaousuario == antProdutoId);
-
-            if (buscaProduto != null)
-            {
-                var novaGrade = new Grademovimento()
-                {
-                    AlteracaoData = DateTime.Now,
-                    DataCadastro = DateTime.Now,
-                    CadastroUsuario = "IMPORTAÇÃO",
-                    AlteracaoUsuario = "IMPORTAÇÃO",
-                    Tamanho = grade[8],
-                    Referencia = grade[4],
-                    ProdutoId = buscaProduto.ProdutoId,
-                    IsAtivo = true,
-                    Cor = grade[7],
-                    Quantidade = Convert.ToDecimal(grade[11])
-                };
-
-                _destino.Grademovimentos.Add(novaGrade);
-            }
-
-            if (contador % 500 == 0)
-            {
-                _destino.SaveChanges();
-                _destino.ChangeTracker.Clear();
-                Console.WriteLine($"{contador} Grades importadas...");
-            }
-        }
-
-        _destino.SaveChanges();
-        _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de Grades para Plus finalizada.");
+        Console.WriteLine(&quot;Importação de Grades finalizada.&quot;);
     }
 
     public void ProdutoPlus()
     {
         if (_origem == null)
-            throw new Exception("Contexto de origem não foi informado.");
+            throw new Exception(&quot;Contexto de origem não foi informado.&quot;);
 
         var produtosOrigem = _origem.Produtos.AsNoTracking().ToList();
         int total = produtosOrigem.Count;
@@ -690,7 +639,7 @@ public class Importador
         foreach (var antProduto in produtosOrigem)
         {
             contador++;
-            Console.WriteLine($"Produto {contador}/{total}");
+            Console.WriteLine($&quot;Produto {contador}/{total}&quot;);
 
             var novoProduto = new Produto()
             {
@@ -711,85 +660,80 @@ public class Importador
             {
                 _destino.SaveChanges();
                 _destino.ChangeTracker.Clear();
-                Console.WriteLine($"{contador} produtos importados...");
+                Console.WriteLine($&quot;{contador} produtos importados...&quot;);
             }
         }
 
         _destino.SaveChanges();
         _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de produtos Plus finalizada.");
+        Console.WriteLine(&quot;Importação de produtos Plus finalizada.&quot;);
     }
-}</code></pre>
+}</textarea>
             </section>
-
             <section id="firebird">
                 <h2>8. Firebird</h2>
                 <p>Exemplo mantendo o padrão de leitura por <strong>BancoOrigem.Execute()</strong>. A conexão Firebird
                     fica fora desta documentação.</p>
-                <pre><code>using System.Data;
+                <textarea class="code" readonly spellcheck="false">using System.Data;
 using NomeDoProjeto.Destino;
 
 public partial class Importador
 {
     public void ClienteFirebirdComercial()
     {
-        var clientes = BancoOrigem.Execute(Select.GetAllFromTable("TCLIENTE"));
+        var clientes = BancoOrigem.Execute(Select.GetAllFromTable(&quot;TCLIENTE&quot;));
         int i = 1;
         int count = clientes.Rows.Count;
 
         foreach (DataRow row in clientes.Rows)
         {
-            Console.WriteLine($"Cliente {i++}/{count}");
+            Console.WriteLine($&quot;Cliente {i++}/{count}&quot;);
 
             var novoCli = new Pessoa()
             {
                 Alteracaodata = DateTime.Now,
                 Datacadastro = DateTime.Now,
                 Cadastrocompleto = true,
-                Cadastrousuario = "IMPORTAÇÃO",
-                Alteracaousuario = row["CONTROLE"].ToString(),
-                Ativo = row["ATIVO"].ToString() == "SIM" ? true : false,
-                Fisjur = row["TIPOCLIENTE"].ToString() == "FÍSICA" ? "F" : "J",
+                Cadastrousuario = &quot;IMPORTAÇÃO&quot;,
+                Alteracaousuario = row[&quot;CONTROLE&quot;].ToString(),
+                Ativo = row[&quot;ATIVO&quot;].ToString() == &quot;SIM&quot; ? true : false,
+                Fisjur = row[&quot;TIPOCLIENTE&quot;].ToString() == &quot;FÍSICA&quot; ? &quot;F&quot; : &quot;J&quot;,
                 Iscliente = true,
                 Consumidorfinal = 1,
-                Nomerazaosocial = row["CLIENTE"].ToString(),
-                Nomefantasia = row["FANTASIA"].ToString(),
-                Bairro = row["BAIRRO"].ToString(),
-                Logradouro = row["ENDERECO"].ToString(),
-                Municipio = row["CODIGOCIDADEIBGE"].ToString(),
-                Uf = Convert.ToInt32(row["CODIGOCIDADEIBGE"].ToString().Substring(0, 2)),
-                Cep = row["CEP"] != DBNull.Value ? FormatarDocumento(row["CEP"].ToString()) : "",
-                Cpfcnpj = row["CPF"] != DBNull.Value ? FormatarDocumento(row["CPF"].ToString())
-                    : row["CNPJ"] != DBNull.Value ? FormatarDocumento(row["CNPJ"].ToString()) : "",
-                Rgie = row["RG"] != DBNull.Value ? FormatarDocumento(row["RG"].ToString())
-                    : row["IE"] != DBNull.Value ? FormatarDocumento(row["IE"].ToString()) : "",
-                Observacao = row["OBS"].ToString(),
-                Celular = row["CELULAR"] != DBNull.Value ? FormatarDocumento(row["CELULAR"].ToString()) : "",
+                Nomerazaosocial = row[&quot;CLIENTE&quot;].ToString(),
+                Nomefantasia = row[&quot;FANTASIA&quot;].ToString(),
+                Bairro = row[&quot;BAIRRO&quot;].ToString(),
+                Logradouro = row[&quot;ENDERECO&quot;].ToString(),
+                Municipio = row[&quot;CODIGOCIDADEIBGE&quot;].ToString(),
+                Uf = Convert.ToInt32(row[&quot;CODIGOCIDADEIBGE&quot;].ToString().Substring(0, 2)),
+                Cep = row[&quot;CEP&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CEP&quot;].ToString()) : &quot;&quot;,
+                Cpfcnpj = row[&quot;CPF&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CPF&quot;].ToString())
+                    : row[&quot;CNPJ&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CNPJ&quot;].ToString()) : &quot;&quot;,
+                Rgie = row[&quot;RG&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;RG&quot;].ToString())
+                    : row[&quot;IE&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;IE&quot;].ToString()) : &quot;&quot;,
+                Observacao = row[&quot;OBS&quot;].ToString(),
+                Celular = row[&quot;CELULAR&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CELULAR&quot;].ToString()) : &quot;&quot;,
             };
 
             _destino.Pessoas.Add(novoCli);
             _destino.SaveChanges();
         }
     }
-}</code></pre>
+}</textarea>
             </section>
-
             <section id="velo-avante">
                 <h2>9. Velo e Avante</h2>
                 <div class="grid grid-2">
                     <div class="card">
-                        <h3>Velo</h3>
-                        <pre><code>// TODO: Documentar padrão de importação Velo.
-// Definir provider, connection string, scaffold e exemplos reais.</code></pre>
+                        <h3>Velo</h3><textarea class="code small" readonly spellcheck="false">// TODO: Documentar padrão de importação Velo.
+// Definir provider, connection string, scaffold e exemplos reais.</textarea>
                     </div>
                     <div class="card">
-                        <h3>Avante</h3>
-                        <pre><code>// TODO: Documentar padrão de importação Avante.
-// Por enquanto, manter vazio conforme definido.</code></pre>
+                        <h3>Avante</h3><textarea class="code small" readonly spellcheck="false">// TODO: Documentar padrão de importação Avante.
+// Por enquanto, manter vazio conforme definido.</textarea>
                     </div>
                 </div>
             </section>
-
             <section id="boas-praticas">
                 <h2>10. Boas práticas</h2>
                 <ul class="checklist">
@@ -802,16 +746,14 @@ public partial class Importador
                     <li>Use ChangeTracker.Clear() após salvar cada lote.</li>
                     <li>Não edite manualmente as classes geradas pelo Scaffold.</li>
                 </ul>
-
-                <h3>Exemplo de busca em memória</h3>
-                <pre><code>var produtos = _destino.Produtos
+                <h3>Exemplo de busca em memória</h3><textarea class="code" readonly spellcheck="false">var produtos = _destino.Produtos
     .AsNoTracking()
     .Where(p =&gt; p.Alteracaousuario != null)
     .ToList()
     .GroupBy(p =&gt; p.Alteracaousuario)
     .ToDictionary(g =&gt; g.Key, g =&gt; g.First());
 
-produtos.TryGetValue(codigoProdutoOrigem, out var produto);</code></pre>
+produtos.TryGetValue(codigoProdutoOrigem, out var produto);</textarea>
             </section>
         </div>
     </main>
