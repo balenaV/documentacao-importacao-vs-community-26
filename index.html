@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentação importação de dados Infinit Soluções</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-50 text-slate-900">
+    <header class="sticky top-0 z-20 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
+            <div>
+                <p class="text-sm font-semibold text-slate-500">Documentação Técnica</p>
+                <h1 class="text-xl font-bold">Documentação importação de dados Infinit Soluções</h1>
+            </div>
+            <nav class="hidden gap-1 md:flex">
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#visao-geral">Visão geral</a>
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#comercial">Comercial</a>
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#plus">Plus</a>
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#velo">Velo</a>
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#avante">Avante</a>
+                <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                    href="#boas-praticas">Boas práticas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="mx-auto grid max-w-7xl gap-8 px-5 py-10 lg:grid-cols-[270px_1fr]">
+        <aside class="hidden lg:block">
+            <div class="sticky top-24 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+                <p class="mb-3 text-sm font-bold text-slate-500">Navegação</p>
+                <div class="flex flex-col gap-1">
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#visao-geral">1. Visão geral</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#criar-projeto">2. Criar projeto</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#estrutura">3. Estrutura padrão</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#comercial">4. Comercial - MySQL</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#plus">5. Plus - SQL Server</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#velo">6. Velo</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#avante">7. Avante</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#csv-exemplos">8. Exemplos CSV</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#firebird-exemplos">9. Exemplos Firebird</a>
+                    <a class="rounded-xl px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-950"
+                        href="#boas-praticas">10. Boas práticas</a>
+                </div>
+            </div>
+        </aside>
+
+        <div class="space-y-8">
+            <section class="rounded-[2rem] bg-gradient-to-br from-slate-900 to-slate-700 p-8 text-white shadow-xl">
+                <div class="max-w-3xl">
+                    <p class="mb-3 inline-flex rounded-full bg-white/10 px-4 py-1 text-sm font-medium text-slate-100">
+                        Padrão interno de importação</p>
+                    <h1 class="text-4xl font-black tracking-tight md:text-5xl">Documentação importação de dados Infinit
+                        Soluções</h1>
+                    <p class="mt-5 text-lg leading-8 text-slate-200">Guia base para criação de projetos de importação
+                        usando C#, EF Core, Scaffold-DbContext, leitura CSV, origem Firebird quando necessário, destino
+                        Comercial em MySQL e destino Plus em SQL Server.</p>
+                </div>
+            </section>
+
+            <section id="visao-geral" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold text-slate-900">1. Visão geral do padrão</h2>
+                <div class="space-y-4 text-slate-700">
+                    <p>O padrão do projeto é manter uma única classe <strong>Importador.cs</strong> com métodos
+                        separados por entidade, como <strong>Cliente()</strong>, <strong>Produto()</strong>,
+                        <strong>Portador()</strong> e <strong>GradeProduto()</strong>. O <strong>Program.cs</strong>
+                        fica responsável por criar as conexões e entregar os contextos prontos para o importador.</p>
+                    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                        <div class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                            <h3 class="text-lg font-bold">Comercial</h3>
+                            <p class="text-sm font-medium text-slate-500">Destino MySQL</p>
+                            <p class="mt-2 text-sm leading-6">Usado nas importações para o banco Comercial. Mantém
+                                Pomelo, MySQL e senha padrão <strong>genesysjp</strong>.</p>
+                        </div>
+                        <div class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                            <h3 class="text-lg font-bold">Plus</h3>
+                            <p class="text-sm font-medium text-slate-500">Destino SQL Server</p>
+                            <p class="mt-2 text-sm leading-6">Usado nas importações para SQL Server. Usuário padrão
+                                <strong>sa</strong> e senha <strong>genesysjp</strong>.</p>
+                        </div>
+                        <div class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                            <h3 class="text-lg font-bold">Velo</h3>
+                            <p class="text-sm font-medium text-slate-500">Reservado</p>
+                            <p class="mt-2 text-sm leading-6">Aba reservada para documentação futura.</p>
+                        </div>
+                        <div class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+                            <h3 class="text-lg font-bold">Avante</h3>
+                            <p class="text-sm font-medium text-slate-500">Reservado</p>
+                            <p class="mt-2 text-sm leading-6">Aba reservada para documentação futura.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="criar-projeto" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">2. Criar o projeto</h2>
+                <p>No Visual Studio, crie um projeto do tipo:</p>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Console App
+Framework: .NET 8
+Nome sugerido: ImportacaoClienteX</code></pre>
+            </section>
+
+            <section id="estrutura" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">3. Estrutura padrão do projeto</h2>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>NomeDoProjeto/
+│
+├── Destino/
+│   ├── DestinoContext.cs
+│   ├── Produto.cs
+│   ├── Pessoa.cs
+│   └── demais entidades geradas pelo Scaffold
+│
+├── Origem/
+│   ├── OrigemContext.cs
+│   └── entidades da origem, quando a origem também for banco
+│
+├── Importador.cs
+└── Program.cs</code></pre>
+                <div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-amber-900">Quando a origem for
+                    CSV, não precisa criar pasta <strong>Origem</strong>. Nesse caso, o importador recebe somente o
+                    contexto do destino.</div>
+            </section>
+
+            <section id="comercial" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">4. Aba Comercial - MySQL</h2>
+                <p>Essa aba é para importações cujo destino é o banco <strong>Comercial</strong>, usando MySQL. A senha
+                    padrão nos exemplos já está definida como <strong>genesysjp</strong>.</p>
+                <h3 class="mt-6 text-lg font-bold">Pacotes NuGet - Comercial MySQL</h3>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
+Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.8
+Install-Package Pomelo.EntityFrameworkCore.MySql -Version 8.0.2
+Install-Package Microsoft.Extensions.Configuration -Version 8.0.0
+Install-Package Microsoft.Extensions.Configuration.Json -Version 8.0.0
+Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</code></pre>
+                <h3 class="mt-6 text-lg font-bold">Scaffold do destino Comercial</h3>
+                <pre
+                    class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Scaffold-DbContext "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;" Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
+                <h3 class="mt-6 text-lg font-bold">Program.cs - CSV para Comercial</h3>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>using Microsoft.EntityFrameworkCore;
+using NomeDoProjeto.Destino;
+
+string connectionDestino =
+    "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;";
+
+var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
+    .UseMySql(connectionDestino, ServerVersion.AutoDetect(connectionDestino))
+    .Options;
+
+using var destino = new DestinoContext(optionsDestino);
+destino.ChangeTracker.AutoDetectChangesEnabled = false;
+
+Console.WriteLine("Iniciando importação Comercial...");
+
+var importador = new Importador(destino);
+importador.GradeProduto();
+
+Console.WriteLine("Importação Comercial finalizada.");
+Console.ReadKey();</code></pre>
+            </section>
+
+            <section id="plus" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">5. Aba Plus - SQL Server</h2>
+                <p>Essa aba é para importações cujo destino é o banco <strong>Plus</strong>, usando SQL Server. Nos
+                    exemplos, o usuário padrão é <strong>sa</strong> e a senha é <strong>genesysjp</strong>.</p>
+                <h3 class="mt-6 text-lg font-bold">Pacotes NuGet - Plus SQL Server</h3>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
+Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 8.0.8
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 8.0.8</code></pre>
+                <h3 class="mt-6 text-lg font-bold">Scaffold do destino Plus</h3>
+                <pre
+                    class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
+                <h3 class="mt-6 text-lg font-bold">Scaffold da origem SQL Server</h3>
+                <pre
+                    class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Origem -Context OrigemContext -Force -NoOnConfiguring</code></pre>
+                <h3 class="mt-6 text-lg font-bold">Program.cs - SQL Server para SQL Server</h3>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>using Microsoft.EntityFrameworkCore;
+using NomeDoProjeto.Origem;
+using NomeDoProjeto.Destino;
+
+string connectionOrigem =
+    @"Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;";
+
+string connectionDestino =
+    @"Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;";
+
+var optionsOrigem = new DbContextOptionsBuilder&lt;OrigemContext&gt;()
+    .UseSqlServer(connectionOrigem)
+    .Options;
+
+var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
+    .UseSqlServer(connectionDestino)
+    .Options;
+
+using var origem = new OrigemContext(optionsOrigem);
+using var destino = new DestinoContext(optionsDestino);
+
+origem.ChangeTracker.AutoDetectChangesEnabled = false;
+destino.ChangeTracker.AutoDetectChangesEnabled = false;
+
+Console.WriteLine("Iniciando importação Plus...");
+
+var importador = new Importador(origem, destino);
+importador.ProdutoPlus();
+
+Console.WriteLine("Importação Plus finalizada.");
+Console.ReadKey();</code></pre>
+            </section>
+
+            <section id="velo" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">6. Aba Velo - reservado</h2>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>// TODO: Documentar padrão de importação Velo.
+// Definir banco destino, provider, connection string, scaffold e exemplos reais.</code></pre>
+            </section>
+
+            <section id="avante" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">7. Aba Avante - reservado</h2>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>// TODO: Documentar padrão de importação Avante.
+// Por enquanto, manter vazio conforme definido.</code></pre>
+            </section>
+
+            <section id="csv-exemplos" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">8. Importador.cs - exemplos CSV</h2>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>using Microsoft.EntityFrameworkCore;
+using NomeDoProjeto.Destino;
+
+public class Importador
+{
+    private readonly DestinoContext _destino;
+    private readonly Origem.OrigemContext? _origem;
+
+    public Importador(DestinoContext destino)
+    {
+        _destino = destino;
+    }
+
+    public Importador(Origem.OrigemContext origem, DestinoContext destino)
+    {
+        _origem = origem;
+        _destino = destino;
+    }
+
+    private static List&lt;string[]&gt; GetCSV(string caminho)
+    {
+        return File.ReadAllLines(caminho)
+            .Skip(1)
+            .Where(linha =&gt; !string.IsNullOrWhiteSpace(linha))
+            .Select(linha =&gt; linha.Split(';'))
+            .ToList();
+    }
+
+    public void GradeProduto()
+    {
+        List&lt;string[]&gt; grades = GetCSV(@"\\kailon\IMPORTACAO\Importações Victor\Mix More - sistema kigi\backup\produtosGrade.csv");
+        var count = grades.Count;
+        int contador = 0;
+
+        Console.WriteLine($"Total de Grades encontrados: {count}");
+
+        foreach (var grade in grades)
+        {
+            contador++;
+            Console.WriteLine($"Grade {contador} // {count}");
+
+            var antProdutoId = grade[0].ToString();
+            var buscaProduto = _destino.Produtos
+                .AsNoTracking()
+                .FirstOrDefault(x =&gt; x.Alteracaousuario == antProdutoId);
+
+            if (buscaProduto != null)
+            {
+                var novaGrade = new Grademovimento()
+                {
+                    AlteracaoData = DateTime.Now,
+                    DataCadastro = DateTime.Now,
+                    CadastroUsuario = "IMPORTAÇÃO",
+                    AlteracaoUsuario = "IMPORTAÇÃO",
+                    Tamanho = grade[8],
+                    Referencia = grade[4],
+                    ProdutoId = buscaProduto.ProdutoId,
+                    IsAtivo = true,
+                    Cor = grade[7],
+                    Quantidade = Convert.ToDecimal(grade[11])
+                };
+
+                buscaProduto.Utilizagrade = true;
+                _destino.Grademovimentos.Add(novaGrade);
+            }
+
+            if (contador % 500 == 0)
+            {
+                try
+                {
+                    _destino.SaveChanges();
+                    _destino.ChangeTracker.Clear();
+                    Console.WriteLine($"{contador} Grades importadas...");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message + "\n" + e.InnerException?.Message);
+                }
+            }
+        }
+
+        _destino.SaveChanges();
+        _destino.ChangeTracker.Clear();
+        Console.WriteLine("Importação de Grades finalizada.");
+    }
+}</code></pre>
+            </section>
+
+            <section id="firebird-exemplos"
+                class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">9. Importador.cs - exemplos Firebird</h2>
+                <p>Exemplo mantendo o padrão de leitura por <strong>BancoOrigem.Execute()</strong>. A configuração da
+                    conexão Firebird fica fora desta documentação.</p>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>using System.Data;
+using NomeDoProjeto.Destino;
+
+public partial class Importador
+{
+    public void ClienteFirebirdComercial()
+    {
+        var clientes = BancoOrigem.Execute(Select.GetAllFromTable("TCLIENTE"));
+        int i = 1;
+        int count = clientes.Rows.Count;
+
+        foreach (DataRow row in clientes.Rows)
+        {
+            Console.WriteLine($"Cliente {i++}/{count}");
+
+            var novoCli = new Pessoa()
+            {
+                Alteracaodata = DateTime.Now,
+                Datacadastro = DateTime.Now,
+                Cadastrocompleto = true,
+                Cadastrousuario = "IMPORTAÇÃO",
+                Alteracaousuario = row["CONTROLE"].ToString(),
+                Ativo = row["ATIVO"].ToString() == "SIM" ? true : false,
+                Fisjur = row["TIPOCLIENTE"].ToString() == "FÍSICA" ? "F" : "J",
+                Iscliente = true,
+                Consumidorfinal = 1,
+                Nomerazaosocial = row["CLIENTE"].ToString(),
+                Nomefantasia = row["FANTASIA"].ToString(),
+                Bairro = row["BAIRRO"].ToString(),
+                Logradouro = row["ENDERECO"].ToString(),
+                Municipio = row["CODIGOCIDADEIBGE"].ToString(),
+                Uf = Convert.ToInt32(row["CODIGOCIDADEIBGE"].ToString().Substring(0, 2)),
+                Cep = row["CEP"] != DBNull.Value ? FormatarDocumento(row["CEP"].ToString()) : "",
+                Cpfcnpj = row["CPF"] != DBNull.Value ? FormatarDocumento(row["CPF"].ToString())
+                    : row["CNPJ"] != DBNull.Value ? FormatarDocumento(row["CNPJ"].ToString()) : "",
+                Rgie = row["RG"] != DBNull.Value ? FormatarDocumento(row["RG"].ToString())
+                    : row["IE"] != DBNull.Value ? FormatarDocumento(row["IE"].ToString()) : "",
+                Observacao = row["OBS"].ToString(),
+                Celular = row["CELULAR"] != DBNull.Value ? FormatarDocumento(row["CELULAR"].ToString()) : "",
+            };
+
+            _destino.Pessoas.Add(novoCli);
+            _destino.SaveChanges();
+        }
+    }
+}</code></pre>
+            </section>
+
+            <section id="boas-praticas" class="scroll-mt-24 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h2 class="mb-4 text-2xl font-bold">10. Boas práticas para importações</h2>
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Use uma única
+                        classe Importador.cs com métodos por entidade.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Crie os
+                        contextos no Program.cs e passe para o Importador pelo construtor.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Quando a origem
+                        for CSV, passe somente o contexto do destino.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Quando a origem
+                        for banco, crie as pastas Origem e Destino com Scaffold separado.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Use
+                        AsNoTracking() em consultas de leitura.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Use SaveChanges
+                        em lote, por exemplo a cada 500 registros.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Use
+                        ChangeTracker.Clear() após salvar cada lote.</div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium">Não edite
+                        manualmente as classes geradas pelo Scaffold.</div>
+                </div>
+                <h3 class="mt-6 text-lg font-bold">Exemplo de carregamento rápido em memória</h3>
+                <pre class="mt-3 overflow-x-auto rounded-2xl bg-slate-950 p-4 text-sm text-slate-100 shadow-inner"><code>var produtos = _destino.Produtos
+    .AsNoTracking()
+    .Where(p =&gt; p.Alteracaousuario != null)
+    .ToList()
+    .GroupBy(p =&gt; p.Alteracaousuario)
+    .ToDictionary(g =&gt; g.Key, g =&gt; g.First());
+
+produtos.TryGetValue(codigoProdutoOrigem, out var produto);</code></pre>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
