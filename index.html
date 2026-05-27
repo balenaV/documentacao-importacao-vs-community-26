@@ -7,18 +7,19 @@
     <title>Documentação importação de dados Infinit Soluções</title>
     <style>
         :root {
-            --bg: #f8fafc;
+            --bg: #f4f7fb;
             --card: #ffffff;
-            --text: #0f172a;
-            --muted: #64748b;
-            --border: #e2e8f0;
+            --text: #172033;
+            --muted: #5f6b7a;
+            --border: #dde5ef;
             --dark: #0f172a;
             --dark2: #111827;
+            --accent: #2563eb;
             --green: #16a34a;
-            --blue: #2563eb;
-            --amber-bg: #fffbeb;
-            --amber-border: #fde68a;
-            --amber-text: #92400e;
+            --amber: #f59e0b;
+            --red: #dc2626;
+            --shadow: 0 14px 35px rgba(15, 23, 42, .08);
+            --radius: 24px;
         }
 
         * {
@@ -41,26 +42,28 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(255, 255, 255, .95);
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(8px);
         }
 
         .header-inner {
-            max-width: 1280px;
+            max-width: 1220px;
             margin: 0 auto;
-            padding: 16px 24px;
+            padding: 18px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
         }
 
-        .label {
+        .eyebrow {
+            margin: 0;
             color: var(--muted);
             font-size: 13px;
             font-weight: 700;
-            margin: 0;
+            letter-spacing: .03em;
+            text-transform: uppercase;
         }
 
         h1,
@@ -69,29 +72,20 @@
             line-height: 1.2;
         }
 
-        h1 {
+        header h1 {
             margin: 4px 0 0;
-            font-size: 24px;
-        }
-
-        h2 {
-            margin: 0 0 16px;
-            font-size: 26px;
-        }
-
-        h3 {
-            margin: 24px 0 10px;
-            font-size: 19px;
+            font-size: 20px;
         }
 
         nav {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
+            justify-content: flex-end;
         }
 
         nav a,
-        aside a {
+        .side a {
             color: #475569;
             text-decoration: none;
             font-size: 14px;
@@ -101,226 +95,296 @@
         }
 
         nav a:hover,
-        aside a:hover {
-            background: #f1f5f9;
+        .side a:hover {
+            background: #eef2f7;
             color: #0f172a;
         }
 
         .layout {
-            max-width: 1280px;
+            max-width: 1220px;
             margin: 0 auto;
-            padding: 32px 24px;
+            padding: 28px 22px 60px;
             display: grid;
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: 28px;
+            grid-template-columns: 270px 1fr;
+            gap: 26px;
         }
 
-        aside {
-            display: block;
-        }
-
-        .toc {
+        .side {
             position: sticky;
             top: 92px;
+            align-self: start;
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             padding: 16px;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
         }
 
-        .toc a {
+        .side-title {
+            font-weight: 800;
+            color: var(--muted);
+            margin-bottom: 10px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+
+        .side a {
             display: block;
-            margin-bottom: 4px;
+            margin: 2px 0;
+        }
+
+        main {
+            min-width: 0;
         }
 
         .hero {
             background: linear-gradient(135deg, #0f172a, #334155);
             color: white;
-            border-radius: 32px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, .22);
+            border-radius: 34px;
+            box-shadow: var(--shadow);
+            padding: 42px;
+            margin-bottom: 26px;
         }
 
-        .hero .pill {
+        .hero .tag {
             display: inline-block;
             padding: 6px 14px;
             border-radius: 999px;
             background: rgba(255, 255, 255, .12);
-            font-size: 14px;
             font-weight: 700;
+            font-size: 13px;
             margin-bottom: 16px;
         }
 
-        .hero h1 {
-            font-size: clamp(32px, 5vw, 54px);
+        .hero h2 {
             margin: 0;
+            font-size: clamp(32px, 5vw, 54px);
+            max-width: 850px;
         }
 
         .hero p {
-            color: #e2e8f0;
-            font-size: 18px;
+            color: #d8e1ee;
             max-width: 900px;
+            font-size: 18px;
+            margin-top: 18px;
         }
 
-        section.card {
+        section {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 28px;
-            margin-top: 26px;
-            box-shadow: 0 8px 20px rgba(15, 23, 42, .05);
-            scroll-margin-top: 110px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 26px;
+            margin-bottom: 24px;
+            scroll-margin-top: 94px;
+        }
+
+        section h2 {
+            margin: 0 0 14px;
+            font-size: 26px;
+        }
+
+        section h3 {
+            margin: 28px 0 8px;
+            font-size: 19px;
+        }
+
+        p {
+            margin: 10px 0;
         }
 
         .grid {
             display: grid;
-            gap: 16px;
-        }
-
-        .grid-2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
         }
 
-        .grid-4 {
+        .grid4 {
+            display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 16px;
         }
 
-        .mini-card {
+        .card {
             border: 1px solid var(--border);
-            background: #f8fafc;
             border-radius: 20px;
             padding: 18px;
+            background: #f8fafc;
         }
 
-        .mini-card h3 {
+        .card h3 {
             margin-top: 0;
         }
 
         .badge {
             display: inline-block;
+            border-radius: 999px;
+            padding: 4px 10px;
             background: #e2e8f0;
-            color: #334155;
             font-size: 12px;
             font-weight: 800;
-            padding: 3px 9px;
-            border-radius: 999px;
+            color: #334155;
         }
 
-        .warning {
-            border: 1px solid var(--amber-border);
-            background: var(--amber-bg);
-            color: var(--amber-text);
-            border-radius: 18px;
-            padding: 16px;
+        .note {
+            border-left: 5px solid var(--amber);
+            background: #fffbeb;
+            color: #713f12;
+            padding: 14px 16px;
+            border-radius: 16px;
+            margin: 14px 0;
             font-weight: 600;
         }
 
-        .code-wrap {
-            margin: 14px 0 24px;
+        .ok {
+            border-left: 5px solid var(--green);
+            background: #f0fdf4;
+            color: #14532d;
+            padding: 14px 16px;
+            border-radius: 16px;
+            margin: 14px 0;
+            font-weight: 600;
+        }
+
+        .code-card {
+            margin: 14px 0 22px;
+            border-radius: 22px;
             border: 1px solid #1e293b;
-            border-radius: 20px;
-            overflow: visible;
             background: var(--dark);
-            box-shadow: 0 10px 24px rgba(15, 23, 42, .18);
+            overflow: hidden;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, .14);
         }
 
         .code-head {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            padding: 10px 12px 10px 16px;
+            align-items: center;
+            gap: 14px;
             background: #020617;
-            color: #cbd5e1;
-            border-radius: 20px 20px 0 0;
-            border-bottom: 1px solid #1e293b;
+            color: #e5e7eb;
+            padding: 10px 12px 10px 16px;
             font-size: 13px;
             font-weight: 800;
+            border-bottom: 1px solid #1e293b;
         }
 
-        .copy-btn {
-            border: 1px solid #334155;
-            background: #1e293b;
-            color: white;
-            border-radius: 10px;
+        .code-head button {
+            border: 1px solid #475569;
+            background: #1f2937;
+            color: #f8fafc;
+            border-radius: 999px;
             padding: 7px 12px;
             cursor: pointer;
-            font-size: 12px;
             font-weight: 800;
+            font-size: 12px;
+            flex-shrink: 0;
         }
 
-        .copy-btn:hover {
+        .code-head button:hover {
             background: #334155;
         }
 
         pre {
             margin: 0;
-            padding: 18px 22px;
-            background: var(--dark);
-            color: #e2e8f0;
-            font-size: 14px;
-            line-height: 1.55;
+            padding: 18px 22px 22px;
+            color: #e5e7eb;
             font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+            line-height: 1.6;
             white-space: pre-wrap;
+            word-break: break-word;
+            overflow-wrap: anywhere;
             overflow: visible;
             max-height: none;
-            height: auto;
-            border-radius: 0 0 20px 20px;
         }
 
         code {
             white-space: pre-wrap;
-            overflow-wrap: anywhere;
             word-break: break-word;
+            overflow-wrap: anywhere;
         }
 
         ul {
             padding-left: 22px;
         }
 
-        .content {
-            min-width: 0;
+        li {
+            margin: 7px 0;
+        }
+
+        .list-check {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .list-check div {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 14px;
+            font-weight: 700;
+            color: #334155;
         }
 
         footer {
-            color: var(--muted);
             text-align: center;
-            padding: 30px;
+            color: var(--muted);
+            padding: 32px 20px 50px;
         }
 
         @media (max-width: 980px) {
-            .layout {
-                grid-template-columns: 1fr;
-            }
-
-            aside {
-                display: none;
-            }
-
             nav {
                 display: none;
             }
 
-            .grid-4,
-            .grid-2 {
+            .layout {
                 grid-template-columns: 1fr;
+            }
+
+            .side {
+                display: none;
+            }
+
+            .grid4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 680px) {
+            .header-inner {
+                display: block;
             }
 
             .hero {
                 padding: 28px;
             }
 
-            section.card {
+            section {
                 padding: 20px;
+            }
+
+            .grid,
+            .grid4,
+            .list-check {
+                grid-template-columns: 1fr;
+            }
+
+            pre {
+                font-size: 13px;
+                padding: 16px;
             }
         }
 
         @media print {
 
             header,
-            aside,
-            .copy-btn {
+            .side,
+            .code-head button {
                 display: none !important;
             }
 
@@ -333,21 +397,27 @@
                 padding: 0;
             }
 
-            section.card,
+            section,
             .hero {
                 box-shadow: none;
-                break-inside: avoid;
+                page-break-inside: avoid;
             }
 
             pre {
-                white-space: pre-wrap;
-                color: #111827;
-                background: #f3f4f6;
+                color: black;
+                background: #f5f5f5;
+                border: 1px solid #ddd;
+            }
+
+            .code-card {
+                background: #f5f5f5;
+                border-color: #ddd;
             }
 
             .code-head {
-                color: #111827;
-                background: #e5e7eb;
+                color: black;
+                background: #eee;
+                border-color: #ddd;
             }
         }
     </style>
@@ -357,7 +427,7 @@
     <header>
         <div class="header-inner">
             <div>
-                <p class="label">Documentação Técnica</p>
+                <p class="eyebrow">Documentação Técnica</p>
                 <h1>Documentação importação de dados Infinit Soluções</h1>
             </div>
             <nav>
@@ -366,78 +436,100 @@
                 <a href="#plus">Plus</a>
                 <a href="#program">Program.cs</a>
                 <a href="#importador">Importador.cs</a>
+                <a href="#firebird">Firebird</a>
             </nav>
         </div>
     </header>
 
-    <main class="layout">
-        <aside>
-            <div class="toc">
-                <p class="label">Navegação</p>
-                <a href="#visao-geral">1. Visão geral</a>
-                <a href="#criar-projeto">2. Criar projeto</a>
-                <a href="#estrutura">3. Estrutura</a>
-                <a href="#comercial">4. Comercial - MySQL</a>
-                <a href="#plus">5. Plus - SQL Server</a>
-                <a href="#program">6. Program.cs</a>
-                <a href="#importador">7. Importador.cs</a>
-                <a href="#firebird">8. Firebird</a>
-                <a href="#velo-avante">9. Velo e Avante</a>
-                <a href="#boas-praticas">10. Boas práticas</a>
-            </div>
+    <div class="layout">
+        <aside class="side">
+            <div class="side-title">Navegação</div>
+            <a href="#visao-geral">1. Visão geral</a>
+            <a href="#criar-projeto">2. Criar projeto</a>
+            <a href="#estrutura">3. Estrutura</a>
+            <a href="#comercial">4. Comercial - MySQL</a>
+            <a href="#plus">5. Plus - SQL Server</a>
+            <a href="#program">6. Program.cs</a>
+            <a href="#importador">7. Importador.cs</a>
+            <a href="#firebird">8. Firebird Origem</a>
+            <a href="#velo-avante">9. Velo e Avante</a>
+            <a href="#boas-praticas">10. Boas práticas</a>
         </aside>
 
-        <div class="content">
+        <main>
             <div class="hero">
-                <span class="pill">Padrão interno de importação</span>
-                <h1>Documentação importação de dados Infinit Soluções</h1>
-                <p>Guia base para criar projetos de importação usando C#, EF Core, Scaffold-DbContext, leitura CSV,
-                    origem Firebird quando necessário, destino Comercial em MySQL e destino Plus em SQL Server.</p>
+                <span class="tag">Padrão interno de importação</span>
+                <h2>Documentação importação de dados Infinit Soluções</h2>
+                <p>
+                    Guia base para projetos de importação em C#, usando destino Comercial em MySQL, destino Plus em SQL
+                    Server,
+                    leitura via CSV e origem Firebird quando necessário.
+                </p>
             </div>
 
-            <section id="visao-geral" class="card">
+            <section id="visao-geral">
                 <h2>1. Visão geral do padrão</h2>
-                <p>O padrão do projeto é manter uma única classe <strong>Importador.cs</strong> com métodos separados
-                    por entidade, como <strong>Cliente()</strong>, <strong>Produto()</strong>,
-                    <strong>Portador()</strong> e <strong>GradeProduto()</strong>. O <strong>Program.cs</strong> fica
-                    responsável por criar as conexões e entregar os contextos prontos para o importador.
+                <p>
+                    O padrão do projeto é manter uma única classe <strong>Importador.cs</strong> com métodos separados
+                    por entidade,
+                    como <strong>Cliente()</strong>, <strong>Produto()</strong>, <strong>Portador()</strong> e
+                    <strong>GradeProduto()</strong>.
                 </p>
-                <div class="grid grid-4">
-                    <div class="mini-card">
-                        <h3>Comercial</h3><span class="badge">MySQL</span>
-                        <p>Destino Comercial usando Pomelo e senha padrão <strong>genesysjp</strong>.</p>
+                <p>
+                    O <strong>Program.cs</strong> fica responsável por carregar as conexões, criar os contextos e
+                    entregar tudo pronto
+                    para o <strong>Importador</strong>.
+                </p>
+
+                <div class="grid4">
+                    <div class="card">
+                        <span class="badge">Documentado</span>
+                        <h3>Comercial</h3>
+                        <p>Destino MySQL. Usa Pomelo e banco padrão <strong>virgem10</strong> nos exemplos.</p>
                     </div>
-                    <div class="mini-card">
-                        <h3>Plus</h3><span class="badge">SQL Server</span>
-                        <p>Destino Plus usando usuário <strong>sa</strong> e senha <strong>genesysjp</strong>.</p>
+                    <div class="card">
+                        <span class="badge">Foco atual</span>
+                        <h3>Plus</h3>
+                        <p>Destino SQL Server. Banco padrão de destino: <strong>INFINITPLUS_VIRGEM</strong>.</p>
                     </div>
-                    <div class="mini-card">
-                        <h3>Velo</h3><span class="badge">Reservado</span>
+                    <div class="card">
+                        <span class="badge">Reservado</span>
+                        <h3>Velo</h3>
                         <p>Área reservada para documentação futura.</p>
                     </div>
-                    <div class="mini-card">
-                        <h3>Avante</h3><span class="badge">Reservado</span>
+                    <div class="card">
+                        <span class="badge">Reservado</span>
+                        <h3>Avante</h3>
                         <p>Área reservada para documentação futura.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="criar-projeto" class="card">
-                <h2>2. Criar o projeto</h2>
-                <p>No Visual Studio, crie um projeto Console App em .NET 8.</p>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Projeto</span><button class="copy-btn">Copiar</button></div>
+            <section id="criar-projeto">
+                <h2>2. Criar projeto</h2>
+                <p>No Visual Studio, crie um projeto do tipo Console App.</p>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Tipo de projeto</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>Console App
 Framework: .NET 8
 Nome sugerido: ImportacaoClienteX</code></pre>
                 </div>
+
+                <p>O padrão recomendado é .NET 8 com EF Core 8.x para manter compatibilidade.</p>
             </section>
 
-            <section id="estrutura" class="card">
+            <section id="estrutura">
                 <h2>3. Estrutura padrão do projeto</h2>
-                <p>Use uma estrutura simples. Quando a origem for CSV, não precisa criar a pasta Origem.</p>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Estrutura de pastas</span><button class="copy-btn">Copiar</button>
+                <p>Use esta estrutura como base:</p>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Estrutura de pastas</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
                     </div>
                     <pre><code>NomeDoProjeto/
 │
@@ -449,25 +541,38 @@ Nome sugerido: ImportacaoClienteX</code></pre>
 │
 ├── Origem/
 │   ├── OrigemContext.cs
+│   ├── ConnectionFirebird.cs
+│   ├── Select.cs
 │   └── entidades da origem, quando a origem também for banco
 │
 ├── Importador.cs
-├── Program.cs
-└── appsettings.json</code></pre>
+├── appsettings.json
+└── Program.cs</code></pre>
                 </div>
-                <div class="warning">Quando a origem for CSV, o importador recebe somente o contexto do destino. Quando
-                    a origem for banco, crie OrigemContext e DestinoContext separados.</div>
+
+                <div class="note">
+                    Quando a origem for CSV, não precisa criar contexto de origem. Nesse caso, o Importador recebe
+                    somente o contexto do destino.
+                </div>
+                <div class="ok">
+                    Quando a origem for Firebird, coloque os arquivos <strong>ConnectionFirebird.cs</strong> e
+                    <strong>Select.cs</strong> dentro da pasta <strong>Origem</strong>.
+                </div>
             </section>
 
-            <section id="comercial" class="card">
+            <section id="comercial">
                 <h2>4. Comercial - MySQL</h2>
-                <p>Importações cujo destino é o banco Comercial usando MySQL. A senha padrão dos exemplos é
-                    <strong>genesysjp</strong>.
+                <p>
+                    Usado para importações cujo destino é o banco Comercial em MySQL.
+                    A senha padrão dos exemplos é <strong>genesysjp</strong>.
                 </p>
 
-                <h3>4.1 Pacotes NuGet - Comercial MySQL</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Package Manager Console</span><button class="copy-btn">Copiar</button>
+                <h3>4.1 Pacotes NuGet - Comercial</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Package Manager Console - Comercial MySQL</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
                     </div>
                     <pre><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
@@ -478,32 +583,48 @@ Install-Package Microsoft.Extensions.Configuration.Json -Version 8.0.0
 Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</code></pre>
                 </div>
 
+
                 <h3>4.2 appsettings.json - Comercial</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>appsettings.json</span><button class="copy-btn">Copiar</button></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>appsettings.json - Comercial</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>{
-  "ConnectionStrings": {
-    "DestinoComercial": "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;"
+  &quot;ConnectionStrings&quot;: {
+    &quot;DestinoComercial&quot;: &quot;Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;&quot;
   }
 }</code></pre>
                 </div>
 
+
                 <h3>4.3 Scaffold do destino Comercial</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Scaffold Comercial</span><button class="copy-btn">Copiar</button></div>
-                    <pre><code>Scaffold-DbContext "Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;" Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Scaffold - Comercial MySQL</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <pre><code>Scaffold-DbContext &quot;Server=localhost;Database=virgem10;User=root;Password=genesysjp;Port=3366;Default Command Timeout=1000;&quot; Pomelo.EntityFrameworkCore.MySql -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
                 </div>
+
             </section>
 
-            <section id="plus" class="card">
+            <section id="plus">
                 <h2>5. Plus - SQL Server</h2>
-                <p>Importações cujo destino é o banco Plus usando SQL Server. Usuário padrão <strong>sa</strong> e senha
-                    <strong>genesysjp</strong>.
+                <p>
+                    Usado para importações cujo destino é o banco Plus em SQL Server.
+                    O banco padrão de destino é <strong>INFINITPLUS_VIRGEM</strong>.
+                    Usuário padrão: <strong>sa</strong>. Senha padrão: <strong>genesysjp</strong>.
                 </p>
 
-                <h3>5.1 Pacotes NuGet - Plus SQL Server</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Package Manager Console</span><button class="copy-btn">Copiar</button>
+                <h3>5.1 Pacotes NuGet - Plus</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Package Manager Console - Plus SQL Server</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
                     </div>
                     <pre><code>Install-Package Microsoft.EntityFrameworkCore -Version 8.0.8
 Install-Package Microsoft.EntityFrameworkCore.Design -Version 8.0.8
@@ -514,48 +635,65 @@ Install-Package Microsoft.Extensions.Configuration.Json -Version 8.0.0
 Install-Package Microsoft.Extensions.Configuration.FileExtensions -Version 8.0.0</code></pre>
                 </div>
 
+
                 <h3>5.2 appsettings.json - Plus</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>appsettings.json</span><button class="copy-btn">Copiar</button></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>appsettings.json - Plus</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>{
-  "ConnectionStrings": {
-    "OrigemPlus": "Server=localhost\\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;",
-    "DestinoPlus": "Server=localhost\\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;"
+  &quot;ConnectionStrings&quot;: {
+    &quot;DestinoPlus&quot;: &quot;Server=localhost\\SQLEXPRESS;Database=INFINITPLUS_VIRGEM;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot;
   }
 }</code></pre>
                 </div>
 
+
                 <h3>5.3 Scaffold do destino Plus</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Scaffold destino Plus</span><button class="copy-btn">Copiar</button>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Scaffold - Destino Plus SQL Server</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
                     </div>
-                    <pre><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoPlusDestino;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
+                    <pre><code>Scaffold-DbContext &quot;Server=localhost\SQLEXPRESS;Database=INFINITPLUS_VIRGEM;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Destino -Context DestinoContext -Force -NoOnConfiguring</code></pre>
                 </div>
+
 
                 <h3>5.4 Scaffold da origem SQL Server, quando existir</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Scaffold origem Plus</span><button class="copy-btn">Copiar</button>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Scaffold - Origem SQL Server</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
                     </div>
-                    <pre><code>Scaffold-DbContext "Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Origem -Context OrigemContext -Force -NoOnConfiguring</code></pre>
+                    <pre><code>Scaffold-DbContext &quot;Server=localhost\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot; Microsoft.EntityFrameworkCore.SqlServer -OutputDir Origem -Context OrigemContext -Force -NoOnConfiguring</code></pre>
                 </div>
+
             </section>
 
-            <section id="program" class="card">
+            <section id="program">
                 <h2>6. Program.cs</h2>
 
                 <h3>6.1 Program.cs - CSV para Comercial</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Program.cs</span><button class="copy-btn">Copiar</button></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Program.cs - CSV para Comercial</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionDestino = configuration.GetConnectionString("DestinoComercial");
+string connectionDestino = configuration.GetConnectionString(&quot;DestinoComercial&quot;);
 
 var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
     .UseMySql(connectionDestino, ServerVersion.AutoDetect(connectionDestino))
@@ -565,28 +703,33 @@ using var destino = new DestinoContext(optionsDestino);
 
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação CSV para Comercial...");
+Console.WriteLine(&quot;Iniciando importação CSV para Comercial...&quot;);
 
 var importador = new Importador(destino);
 importador.GradeProduto();
 
-Console.WriteLine("Importação Comercial finalizada.");
+Console.WriteLine(&quot;Importação Comercial finalizada.&quot;);
 Console.ReadKey();</code></pre>
                 </div>
 
+
                 <h3>6.2 Program.cs - CSV para Plus</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Program.cs</span><button class="copy-btn">Copiar</button></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Program.cs - CSV para Plus</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionDestino = configuration.GetConnectionString("DestinoPlus");
+string connectionDestino = configuration.GetConnectionString(&quot;DestinoPlus&quot;);
 
 var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
     .UseSqlServer(connectionDestino)
@@ -596,18 +739,23 @@ using var destino = new DestinoContext(optionsDestino);
 
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação CSV para Plus...");
+Console.WriteLine(&quot;Iniciando importação CSV para Plus...&quot;);
 
 var importador = new Importador(destino);
 importador.GradeProdutoPlusCsv();
 
-Console.WriteLine("Importação Plus finalizada.");
+Console.WriteLine(&quot;Importação Plus finalizada.&quot;);
 Console.ReadKey();</code></pre>
                 </div>
 
+
                 <h3>6.3 Program.cs - SQL Server para SQL Server</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Program.cs</span><button class="copy-btn">Copiar</button></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Program.cs - SQL Server para SQL Server</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using NomeDoProjeto.Origem;
@@ -615,11 +763,11 @@ using NomeDoProjeto.Destino;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
-    .AddJsonFile("appsettings.json", optional: false)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
     .Build();
 
-var connectionOrigem = configuration.GetConnectionString("OrigemPlus");
-var connectionDestino = configuration.GetConnectionString("DestinoPlus");
+string connectionOrigem = &quot;Server=localhost\\SQLEXPRESS;Database=BancoOrigem;User Id=sa;Password=genesysjp;TrustServerCertificate=True;&quot;;
+string connectionDestino = configuration.GetConnectionString(&quot;DestinoPlus&quot;);
 
 var optionsOrigem = new DbContextOptionsBuilder&lt;OrigemContext&gt;()
     .UseSqlServer(connectionOrigem)
@@ -635,41 +783,92 @@ using var destino = new DestinoContext(optionsDestino);
 origem.ChangeTracker.AutoDetectChangesEnabled = false;
 destino.ChangeTracker.AutoDetectChangesEnabled = false;
 
-Console.WriteLine("Iniciando importação SQL Server para SQL Server...");
+Console.WriteLine(&quot;Iniciando importação SQL Server para SQL Server...&quot;);
 
 var importador = new Importador(origem, destino);
 importador.ProdutoPlus();
 
-Console.WriteLine("Importação Plus finalizada.");
+Console.WriteLine(&quot;Importação finalizada.&quot;);
 Console.ReadKey();</code></pre>
                 </div>
+
+
+                <h3>6.4 Program.cs - Firebird para Plus</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Program.cs - Firebird para Plus</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <pre><code>using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using NomeDoProjeto.Destino;
+using NomeDoProjeto.Origem;
+
+var configuration = new ConfigurationBuilder()
+    .SetBasePath(AppContext.BaseDirectory)
+    .AddJsonFile(&quot;appsettings.json&quot;, optional: false)
+    .Build();
+
+string connectionDestino = configuration.GetConnectionString(&quot;DestinoPlus&quot;);
+
+var optionsDestino = new DbContextOptionsBuilder&lt;DestinoContext&gt;()
+    .UseSqlServer(connectionDestino)
+    .Options;
+
+using var destino = new DestinoContext(optionsDestino);
+
+destino.ChangeTracker.AutoDetectChangesEnabled = false;
+
+var caminhoBancoFirebird = @&quot;C:\Importacao\Backup\BANCO.FDB&quot;;
+var bancoOrigem = new ConnectionFirebird(caminhoBancoFirebird);
+
+Console.WriteLine(&quot;Iniciando importação Firebird para Plus...&quot;);
+
+var importador = new Importador(destino, bancoOrigem);
+importador.ClienteFirebirdPlus();
+
+Console.WriteLine(&quot;Importação finalizada.&quot;);
+Console.ReadKey();</code></pre>
+                </div>
+
             </section>
 
-            <section id="importador" class="card">
+            <section id="importador">
                 <h2>7. Importador.cs</h2>
-                <p>Classe única com construtor para cenário com apenas destino, usado em CSV, e construtor com origem e
-                    destino, usado em banco para banco.</p>
+                <p>Classe única com construtores para os cenários de CSV, banco origem e Firebird.</p>
 
-                <div class="code-wrap">
-                    <div class="code-head"><span>Importador.cs - CSV e SQL Server</span><button
-                            class="copy-btn">Copiar</button></div>
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Importador.cs - Estrutura base</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>using Microsoft.EntityFrameworkCore;
+using System.Data;
 using NomeDoProjeto.Destino;
+using NomeDoProjeto.Origem;
 
 public class Importador
 {
     private readonly DestinoContext _destino;
-    private readonly Origem.OrigemContext? _origem;
+    private readonly OrigemContext? _origem;
+    private readonly ConnectionFirebird? _bancoOrigem;
 
     public Importador(DestinoContext destino)
     {
         _destino = destino;
     }
 
-    public Importador(Origem.OrigemContext origem, DestinoContext destino)
+    public Importador(OrigemContext origem, DestinoContext destino)
     {
         _origem = origem;
         _destino = destino;
+    }
+
+    public Importador(DestinoContext destino, ConnectionFirebird bancoOrigem)
+    {
+        _destino = destino;
+        _bancoOrigem = bancoOrigem;
     }
 
     private static List&lt;string[]&gt; GetCSV(string caminho)
@@ -677,24 +876,26 @@ public class Importador
         return File.ReadAllLines(caminho)
             .Skip(1)
             .Where(linha =&gt; !string.IsNullOrWhiteSpace(linha))
-            .Select(linha =&gt; linha.Split(';'))
+            .Select(linha =&gt; linha.Split(&#x27;;&#x27;))
             .ToList();
     }
 
     public void GradeProduto()
     {
-        List&lt;string[]&gt; grades = GetCSV(@"\\kailon\IMPORTACAO\Importações Victor\Mix More - sistema kigi\backup\produtosGrade.csv");
+        List&lt;string[]&gt; grades = GetCSV(@&quot;\\kailon\IMPORTACAO\Importações Victor\Mix More - sistema kigi\backup\produtosGrade.csv&quot;);
+
         var count = grades.Count;
         int contador = 0;
 
-        Console.WriteLine($"Total de Grades encontrados: {count}");
+        Console.WriteLine($&quot;Total de Grades encontrados: {count}&quot;);
 
         foreach (var grade in grades)
         {
             contador++;
-            Console.WriteLine($"Grade {contador} // {count}");
+            Console.WriteLine($&quot;Grade {contador} // {count}&quot;);
 
             var antProdutoId = grade[0].ToString();
+
             var buscaProduto = _destino.Produtos
                 .AsNoTracking()
                 .FirstOrDefault(x =&gt; x.Alteracaousuario == antProdutoId);
@@ -705,8 +906,8 @@ public class Importador
                 {
                     AlteracaoData = DateTime.Now,
                     DataCadastro = DateTime.Now,
-                    CadastroUsuario = "IMPORTAÇÃO",
-                    AlteracaoUsuario = "IMPORTAÇÃO",
+                    CadastroUsuario = &quot;IMPORTAÇÃO&quot;,
+                    AlteracaoUsuario = &quot;IMPORTAÇÃO&quot;,
                     Tamanho = grade[8],
                     Referencia = grade[4],
                     ProdutoId = buscaProduto.ProdutoId,
@@ -716,6 +917,7 @@ public class Importador
                 };
 
                 buscaProduto.Utilizagrade = true;
+
                 _destino.Grademovimentos.Add(novaGrade);
             }
 
@@ -725,34 +927,37 @@ public class Importador
                 {
                     _destino.SaveChanges();
                     _destino.ChangeTracker.Clear();
-                    Console.WriteLine($"{contador} Grades importadas...");
+                    Console.WriteLine($&quot;{contador} Grades importadas...&quot;);
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message + "\n" + e.InnerException?.Message);
+                    Console.WriteLine(e.Message + &quot;\n&quot; + e.InnerException?.Message);
                 }
             }
         }
 
         _destino.SaveChanges();
         _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de Grades finalizada.");
+
+        Console.WriteLine(&quot;Importação de Grades finalizada.&quot;);
     }
 
     public void GradeProdutoPlusCsv()
     {
-        List&lt;string[]&gt; grades = GetCSV(@"C:\Importacao\produtosGrade.csv");
+        List&lt;string[]&gt; grades = GetCSV(@&quot;C:\Importacao\produtosGrade.csv&quot;);
+
         var count = grades.Count;
         int contador = 0;
 
-        Console.WriteLine($"Total de Grades encontrados: {count}");
+        Console.WriteLine($&quot;Total de Grades encontrados: {count}&quot;);
 
         foreach (var grade in grades)
         {
             contador++;
-            Console.WriteLine($"Grade {contador} // {count}");
+            Console.WriteLine($&quot;Grade {contador} // {count}&quot;);
 
             var antProdutoId = grade[0].ToString();
+
             var buscaProduto = _destino.Produtos
                 .AsNoTracking()
                 .FirstOrDefault(x =&gt; x.Alteracaousuario == antProdutoId);
@@ -763,8 +968,8 @@ public class Importador
                 {
                     AlteracaoData = DateTime.Now,
                     DataCadastro = DateTime.Now,
-                    CadastroUsuario = "IMPORTAÇÃO",
-                    AlteracaoUsuario = "IMPORTAÇÃO",
+                    CadastroUsuario = &quot;IMPORTAÇÃO&quot;,
+                    AlteracaoUsuario = &quot;IMPORTAÇÃO&quot;,
                     Tamanho = grade[8],
                     Referencia = grade[4],
                     ProdutoId = buscaProduto.ProdutoId,
@@ -780,19 +985,20 @@ public class Importador
             {
                 _destino.SaveChanges();
                 _destino.ChangeTracker.Clear();
-                Console.WriteLine($"{contador} Grades importadas...");
+                Console.WriteLine($&quot;{contador} Grades importadas...&quot;);
             }
         }
 
         _destino.SaveChanges();
         _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de Grades para Plus finalizada.");
+
+        Console.WriteLine(&quot;Importação de Grades para Plus finalizada.&quot;);
     }
 
     public void ProdutoPlus()
     {
         if (_origem == null)
-            throw new InvalidOperationException("OrigemContext não foi informado no construtor.");
+            throw new InvalidOperationException(&quot;OrigemContext não foi informado no construtor.&quot;);
 
         var produtosOrigem = _origem.Produtos
             .AsNoTracking()
@@ -800,15 +1006,15 @@ public class Importador
 
         int total = produtosOrigem.Count;
         int contador = 0;
+        int tamanhoBatch = 500;
 
-        Console.WriteLine($"Total de produtos encontrados: {total}");
+        Console.WriteLine($&quot;Total de produtos encontrados: {total}&quot;);
 
         foreach (var antProduto in produtosOrigem)
         {
             contador++;
-            Console.WriteLine($"Produto {contador}/{total}");
 
-            var novoProduto = new Produto()
+            var novoProduto = new Produto
             {
                 Alteracaousuario = antProduto.Alteracaousuario,
                 Descricao = antProduto.Descricao,
@@ -823,160 +1029,298 @@ public class Importador
 
             _destino.Produtos.Add(novoProduto);
 
-            if (contador % 500 == 0)
+            if (contador % tamanhoBatch == 0)
             {
                 _destino.SaveChanges();
                 _destino.ChangeTracker.Clear();
-                Console.WriteLine($"{contador} produtos importados...");
+                Console.WriteLine($&quot;Produtos importados: {contador}/{total}&quot;);
             }
         }
 
         _destino.SaveChanges();
         _destino.ChangeTracker.Clear();
-        Console.WriteLine("Importação de produtos Plus finalizada.");
-    }
-}</code></pre>
-                </div>
-            </section>
 
-            <section id="firebird" class="card">
-                <h2>8. Firebird</h2>
-                <p>Exemplo mantendo o padrão de leitura por <strong>BancoOrigem.Execute()</strong>. A conexão Firebird
-                    fica fora desta documentação.</p>
-
-                <div class="code-wrap">
-                    <div class="code-head"><span>Cliente Firebird para Comercial ou Plus</span><button
-                            class="copy-btn">Copiar</button></div>
-                    <pre><code>using System.Data;
-using NomeDoProjeto.Destino;
-
-public partial class Importador
-{
-    public void ClienteFirebirdComercial()
-    {
-        var clientes = BancoOrigem.Execute(Select.GetAllFromTable("TCLIENTE"));
-        int i = 1;
-        int count = clientes.Rows.Count;
-
-        foreach (DataRow row in clientes.Rows)
-        {
-            Console.WriteLine($"Cliente {i++}/{count}");
-
-            var novoCli = new Pessoa()
-            {
-                Alteracaodata = DateTime.Now,
-                Datacadastro = DateTime.Now,
-                Cadastrocompleto = true,
-                Cadastrousuario = "IMPORTAÇÃO",
-                Alteracaousuario = row["CONTROLE"].ToString(),
-                Ativo = row["ATIVO"].ToString() == "SIM" ? true : false,
-                Fisjur = row["TIPOCLIENTE"].ToString() == "FÍSICA" ? "F" : "J",
-                Iscliente = true,
-                Consumidorfinal = 1,
-                Nomerazaosocial = row["CLIENTE"].ToString(),
-                Nomefantasia = row["FANTASIA"].ToString(),
-                Bairro = row["BAIRRO"].ToString(),
-                Logradouro = row["ENDERECO"].ToString(),
-                Municipio = row["CODIGOCIDADEIBGE"].ToString(),
-                Uf = Convert.ToInt32(row["CODIGOCIDADEIBGE"].ToString().Substring(0, 2)),
-                Cep = row["CEP"] != DBNull.Value ? FormatarDocumento(row["CEP"].ToString()) : "",
-                Cpfcnpj = row["CPF"] != DBNull.Value ? FormatarDocumento(row["CPF"].ToString())
-                    : row["CNPJ"] != DBNull.Value ? FormatarDocumento(row["CNPJ"].ToString()) : "",
-                Rgie = row["RG"] != DBNull.Value ? FormatarDocumento(row["RG"].ToString())
-                    : row["IE"] != DBNull.Value ? FormatarDocumento(row["IE"].ToString()) : "",
-                Observacao = row["OBS"].ToString(),
-                Celular = row["CELULAR"] != DBNull.Value ? FormatarDocumento(row["CELULAR"].ToString()) : "",
-            };
-
-            _destino.Pessoas.Add(novoCli);
-            _destino.SaveChanges();
-        }
+        Console.WriteLine($&quot;Importação de produtos finalizada. Total importado: {contador}&quot;);
     }
 
     public void ClienteFirebirdPlus()
     {
-        var clientes = BancoOrigem.Execute(Select.GetAllFromTable("TCLIENTE"));
+        if (_bancoOrigem == null)
+            throw new InvalidOperationException(&quot;ConnectionFirebird não foi informado no construtor.&quot;);
+
+        var clientes = _bancoOrigem.Execute(Select.GetAllFromTable(&quot;TCLIENTE&quot;));
+
         int i = 1;
         int count = clientes.Rows.Count;
 
         foreach (DataRow row in clientes.Rows)
         {
-            Console.WriteLine($"Cliente {i++}/{count}");
+            Console.WriteLine($&quot;Cliente {i++}/{count}&quot;);
 
             var novoCli = new Pessoa()
             {
                 Alteracaodata = DateTime.Now,
                 Datacadastro = DateTime.Now,
                 Cadastrocompleto = true,
-                Cadastrousuario = "IMPORTAÇÃO",
-                Alteracaousuario = row["CONTROLE"].ToString(),
-                Ativo = row["ATIVO"].ToString() == "SIM" ? true : false,
-                Fisjur = row["TIPOCLIENTE"].ToString() == "FÍSICA" ? "F" : "J",
+                Cadastrousuario = &quot;IMPORTAÇÃO&quot;,
+                Alteracaousuario = row[&quot;CONTROLE&quot;].ToString(),
+                Ativo = row[&quot;ATIVO&quot;].ToString() == &quot;SIM&quot; ? true : false,
+                Fisjur = row[&quot;TIPOCLIENTE&quot;].ToString() == &quot;FÍSICA&quot; ? &quot;F&quot; : &quot;J&quot;,
                 Iscliente = true,
                 Consumidorfinal = 1,
-                Nomerazaosocial = row["CLIENTE"].ToString(),
-                Nomefantasia = row["FANTASIA"].ToString(),
-                Bairro = row["BAIRRO"].ToString(),
-                Logradouro = row["ENDERECO"].ToString(),
-                Municipio = row["CODIGOCIDADEIBGE"].ToString(),
-                Uf = Convert.ToInt32(row["CODIGOCIDADEIBGE"].ToString().Substring(0, 2)),
-                Cep = row["CEP"] != DBNull.Value ? FormatarDocumento(row["CEP"].ToString()) : "",
-                Cpfcnpj = row["CPF"] != DBNull.Value ? FormatarDocumento(row["CPF"].ToString())
-                    : row["CNPJ"] != DBNull.Value ? FormatarDocumento(row["CNPJ"].ToString()) : "",
-                Rgie = row["RG"] != DBNull.Value ? FormatarDocumento(row["RG"].ToString())
-                    : row["IE"] != DBNull.Value ? FormatarDocumento(row["IE"].ToString()) : "",
-                Observacao = row["OBS"].ToString(),
-                Celular = row["CELULAR"] != DBNull.Value ? FormatarDocumento(row["CELULAR"].ToString()) : "",
+                Nomerazaosocial = row[&quot;CLIENTE&quot;].ToString(),
+                Nomefantasia = row[&quot;FANTASIA&quot;].ToString(),
+                Bairro = row[&quot;BAIRRO&quot;].ToString(),
+                Logradouro = row[&quot;ENDERECO&quot;].ToString(),
+                Municipio = row[&quot;CODIGOCIDADEIBGE&quot;].ToString(),
+                Uf = Convert.ToInt32(row[&quot;CODIGOCIDADEIBGE&quot;].ToString().Substring(0, 2)),
+                Cep = row[&quot;CEP&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CEP&quot;].ToString()) : &quot;&quot;,
+                Cpfcnpj = row[&quot;CPF&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CPF&quot;].ToString()) : row[&quot;CNPJ&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CNPJ&quot;].ToString()) : &quot;&quot;,
+                Rgie = row[&quot;RG&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;RG&quot;].ToString()) : row[&quot;IE&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;IE&quot;].ToString()) : &quot;&quot;,
+                Observacao = row[&quot;OBS&quot;].ToString(),
+                Celular = row[&quot;CELULAR&quot;] != DBNull.Value ? FormatarDocumento(row[&quot;CELULAR&quot;].ToString()) : &quot;&quot;,
             };
 
             _destino.Pessoas.Add(novoCli);
             _destino.SaveChanges();
         }
     }
+
+    private static string FormatarDocumento(string valor)
+    {
+        if (string.IsNullOrWhiteSpace(valor))
+            return &quot;&quot;;
+
+        return new string(valor.Where(char.IsDigit).ToArray());
+    }
 }</code></pre>
+                </div>
+
+            </section>
+
+            <section id="firebird">
+                <h2>8. Firebird como origem</h2>
+                <p>
+                    Para importações com origem Firebird, coloque estes dois arquivos dentro da pasta
+                    <strong>Origem</strong>:
+                </p>
+                <ul>
+                    <li><strong>ConnectionFirebird.cs</strong></li>
+                    <li><strong>Select.cs</strong></li>
+                </ul>
+
+                <h3>8.1 Pacote NuGet Firebird</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Package Manager Console - Firebird</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <pre><code>Install-Package FirebirdSql.Data.FirebirdClient</code></pre>
+                </div>
+
+
+                <h3>8.2 ConnectionFirebird.cs</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>ConnectionFirebird.cs - modelo para pasta Origem</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <pre><code>using FirebirdSql.Data.FirebirdClient;
+using System.Data;
+
+namespace NomeDoProjeto.Origem
+{
+    public class ConnectionFirebird
+    {
+        private string strConnection { get; set; }
+        private FbConnection Connection { get; set; }
+        private string DbPath { get; set; }
+        private FbDataAdapter adapt;
+        private FbDataReader reader;
+
+        public ConnectionFirebird()
+        {
+        }
+
+        public ConnectionFirebird(string dbPath)
+        {
+            this.DbPath = dbPath;
+            this.strConnection =
+                &quot;User=SYSDBA;&quot; +
+                &quot;Password=masterkey;&quot; +
+                &quot;DataBase=localhost:&quot; + DbPath + &quot;;&quot; +
+                &quot;Charset=NONE;&quot;;
+
+            WorkDoConnection();
+        }
+
+        private void WorkDoConnection()
+        {
+            this.Connection = new FbConnection(strConnection);
+            this.reader = null;
+            this.adapt = new FbDataAdapter();
+        }
+
+        public void OpenConnection()
+        {
+            this.Connection.Open();
+        }
+
+        public void CloseConnection()
+        {
+            if (this.Connection != null)
+            {
+                this.Connection.Close();
+            }
+        }
+
+        public DataTable Execute(string fbSqlQuery)
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                this.OpenConnection();
+
+                this.adapt = new FbDataAdapter(fbSqlQuery, this.Connection);
+                this.adapt.SelectCommand.Transaction = this.Connection.BeginTransaction();
+                this.adapt.SelectCommand.ExecuteNonQuery();
+                this.adapt.Fill(dataTable);
+
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+            finally
+            {
+                if (Connection.State == ConnectionState.Open)
+                    this.CloseConnection();
+            }
+        }
+    }
+}</code></pre>
+                </div>
+
+
+                <h3>8.3 Select.cs</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Select.cs - modelo para pasta Origem</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <pre><code>namespace NomeDoProjeto.Origem
+{
+    public class Select
+    {
+        public static string GetAllFromTable(string tableName)
+        {
+            string SQLQuery = string.Format(@&quot;SELECT * FROM {0}&quot;, tableName);
+
+            return SQLQuery;
+        }
+
+        public static string GetAllFromTableWhere(string tableName, string where)
+        {
+            string SQLQuery = string.Format(@&quot;SELECT * FROM {0} WHERE {1}&quot;, tableName, where);
+
+            return SQLQuery;
+        }
+
+        public static string GetTableWithWhere(string tableName, string SQLWhere)
+        {
+            string SQLQuery = string.Format(@&quot;SELECT * FROM {0} WHERE {1}&quot;, tableName, SQLWhere);
+
+            return SQLQuery;
+        }
+
+        public static string GetPessoaFeitoCrianca()
+        {
+            return string.Format(@&quot;
+                SELECT 
+                    P.cod AS pessoa_cod,
+                    P.RAZAOSOCIAL,
+                    P.cnpj_cpf,
+                    P.insc_Rg,
+                    P.status,
+                    (SELECT FIRST 1 E.logradouro FROM pes_enderecos E WHERE E.codpessoa = P.cod) AS logradouro,
+                    (SELECT FIRST 1 E.bairro FROM pes_enderecos E WHERE E.codpessoa = P.cod) AS bairro,
+                    (SELECT FIRST 1 E.cep FROM pes_enderecos E WHERE E.codpessoa = P.cod) AS cep,
+                    (SELECT FIRST 1 C.codibge FROM pes_enderecos E LEFT JOIN cep_cidade C ON E.codcepcidade = C.cod WHERE E.codpessoa = P.cod) AS codigoibge,
+                    (SELECT FIRST 1 U.sigla FROM pes_enderecos E LEFT JOIN cep_cidade C ON E.codcepcidade = C.cod LEFT JOIN cep_uf U ON C.coduf = U.cod WHERE E.codpessoa = P.cod) AS uf_sigla
+                FROM pes_pessoas P;
+            &quot;);
+        }
+    }
+}</code></pre>
+                </div>
+
+
+                <div class="note">
+                    Ajuste o namespace dos arquivos Firebird para o namespace real do projeto, por exemplo:
+                    <strong>NomeDoProjeto.Origem</strong>.
                 </div>
             </section>
 
-            <section id="velo-avante" class="card">
+            <section id="velo-avante">
                 <h2>9. Velo e Avante</h2>
-                <div class="grid grid-2">
-                    <div class="mini-card">
+                <div class="grid">
+                    <div class="card">
                         <h3>Velo</h3>
-                        <p>Reservado para documentação futura.</p>
-                        <div class="code-wrap">
-                            <div class="code-head"><span>TODO</span><button class="copy-btn">Copiar</button></div>
+                        <p>Área reservada para documentação futura.</p>
+
+                        <div class="code-card">
+                            <div class="code-head">
+                                <span>TODO - Velo</span>
+                                <button type="button" onclick="copyCode(this)">Copiar</button>
+                            </div>
                             <pre><code>// TODO: Documentar padrão de importação Velo.
 // Definir banco destino, provider, connection string, scaffold e exemplos reais.</code></pre>
                         </div>
+
                     </div>
-                    <div class="mini-card">
+                    <div class="card">
                         <h3>Avante</h3>
-                        <p>Reservado para documentação futura.</p>
-                        <div class="code-wrap">
-                            <div class="code-head"><span>TODO</span><button class="copy-btn">Copiar</button></div>
+                        <p>Área reservada para documentação futura.</p>
+
+                        <div class="code-card">
+                            <div class="code-head">
+                                <span>TODO - Avante</span>
+                                <button type="button" onclick="copyCode(this)">Copiar</button>
+                            </div>
                             <pre><code>// TODO: Documentar padrão de importação Avante.
 // Por enquanto, manter vazio conforme definido.</code></pre>
                         </div>
+
                     </div>
                 </div>
             </section>
 
-            <section id="boas-praticas" class="card">
+            <section id="boas-praticas">
                 <h2>10. Boas práticas</h2>
-                <ul>
-                    <li>Use uma única classe <strong>Importador.cs</strong> com métodos por entidade.</li>
-                    <li>Crie os contextos no <strong>Program.cs</strong> e passe para o Importador pelo construtor.</li>
-                    <li>Quando a origem for CSV, passe somente o contexto do destino.</li>
-                    <li>Quando a origem for banco, crie as pastas <strong>Origem</strong> e <strong>Destino</strong> com
-                        Scaffold separado.</li>
-                    <li>Use <strong>AsNoTracking()</strong> em consultas de leitura.</li>
-                    <li>Use <strong>SaveChanges()</strong> em lote, por exemplo a cada 500 registros.</li>
-                    <li>Use <strong>ChangeTracker.Clear()</strong> após salvar cada lote.</li>
-                    <li>Não edite manualmente as classes geradas pelo Scaffold.</li>
-                </ul>
-                <h3>Busca em memória para evitar consulta dentro do foreach</h3>
-                <div class="code-wrap">
-                    <div class="code-head"><span>Dictionary</span><button class="copy-btn">Copiar</button></div>
+                <div class="list-check">
+                    <div>Use uma única classe Importador.cs com métodos por entidade.</div>
+                    <div>Crie os contextos no Program.cs e passe para o Importador pelo construtor.</div>
+                    <div>Quando a origem for CSV, passe somente o contexto do destino.</div>
+                    <div>Quando a origem for banco, crie Origem e Destino com Scaffold separado.</div>
+                    <div>Use AsNoTracking() em consultas de leitura.</div>
+                    <div>Use SaveChanges em lote, por exemplo a cada 500 registros.</div>
+                    <div>Use ChangeTracker.Clear() após salvar cada lote.</div>
+                    <div>Não edite manualmente as classes geradas pelo Scaffold.</div>
+                </div>
+
+                <h3>Exemplo de busca em memória</h3>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>Busca em memória para evitar consulta dentro do foreach</span>
+                        <button type="button" onclick="copyCode(this)">Copiar</button>
+                    </div>
                     <pre><code>var produtos = _destino.Produtos
     .AsNoTracking()
     .Where(p =&gt; p.Alteracaousuario != null)
@@ -986,39 +1330,51 @@ public partial class Importador
 
 produtos.TryGetValue(codigoProdutoOrigem, out var produto);</code></pre>
                 </div>
-            </section>
 
-            <footer>Documentação importação de dados Infinit Soluções</footer>
-        </div>
-    </main>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        Documentação importação de dados Infinit Soluções
+    </footer>
 
     <script>
-        document.querySelectorAll('.copy-btn').forEach(function (button) {
-            button.addEventListener('click', async function () {
-                const wrapper = button.closest('.code-wrap');
-                const code = wrapper ? wrapper.querySelector('code') : null;
-                if (!code) return;
+        function copyCode(button) {
+            const card = button.closest('.code-card');
+            const code = card.querySelector('code').innerText;
 
-                const text = code.innerText;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(code).then(function () {
+                    setCopied(button);
+                }).catch(function () {
+                    fallbackCopy(code, button);
+                });
+            } else {
+                fallbackCopy(code, button);
+            }
+        }
 
-                try {
-                    await navigator.clipboard.writeText(text);
-                    const original = button.innerText;
-                    button.innerText = 'Copiado!';
-                    setTimeout(function () { button.innerText = original; }, 1200);
-                } catch (err) {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = text;
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    const original = button.innerText;
-                    button.innerText = 'Copiado!';
-                    setTimeout(function () { button.innerText = original; }, 1200);
-                }
-            });
-        });
+        function fallbackCopy(text, button) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            setCopied(button);
+        }
+
+        function setCopied(button) {
+            const original = button.innerText;
+            button.innerText = 'Copiado!';
+            setTimeout(function () {
+                button.innerText = original;
+            }, 1400);
+        }
     </script>
 </body>
 
